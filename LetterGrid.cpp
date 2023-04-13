@@ -28,18 +28,18 @@ void LetterGrid::LoadGridFromFile(string path){
 	fin >> inputLen;
 	fin >> inputWid;
 	grid.resize(inputLen, inputWid);
-	// Grid Loading
-	for (int x = 0; x < inputLen; x++){
-		for (int y = 0; y < inputWid; y++){
+	// Grid Loading 
+	for (int y = 0; y < inputWid; y++){
+		for (int x = 0; x < inputLen; x++){
 			fin >> grid[y][x];
 		}
 	}
 }
 
 void LetterGrid::PrintGrid(){
-	cout << "Grid: \n";
-	for (int x = 0; x < grid.cols();  x++){
-		for (int y = 0; y < grid.rows(); y++){
+	cout << "Grid: \n"; 
+	for (int y = 0; y < grid.rows(); y++){
+		for (int x = 0; x < grid.cols();  x++){
 			cout << grid[y][x] << " ";
 		}
 		cout << "\n";

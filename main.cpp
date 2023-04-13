@@ -11,8 +11,8 @@ using namespace std;
 // Precondition: WordFinder must be sorted
 void matchWords (WordFinder glossary, LetterGrid wsearch){
 	// Double for loop for each entry in grid
-	for (int x = 0; x < wsearch.grid.cols(); x++){
-		for (int y = 0; y < wsearch.grid.rows(); y++){
+	for (int y = 0; y < wsearch.grid.rows(); y++){
+		for (int x = 0; x < wsearch.grid.cols(); x++){
 			// Loop for each word combo after inital word
 			vector<string> gridWords (8,wsearch.grid[y][x]);
 			for (int i = 1; i < wsearch.grid.rows(); i++){
@@ -42,11 +42,23 @@ void matchWords (WordFinder glossary, LetterGrid wsearch){
 	} // End grid double loop
 } // End matchWords
 
-int main(){
+// Function: Handles entire word search process and ask users for approriate inputs
+void wordSearch (){
+	// Setting up LetterGrid and WordFinder
+	string inputStr;
 	WordFinder glossary = WordFinder("Glossary.txt");
-	LetterGrid wsearch = LetterGrid("input15.txt");
-	glossary.SelectionSortWords();
+	glossary.SelectionSortWords(); // Sort Glossary
+	cout << "Enter grid file name and extension (ex: input15.txt): ";
+	cin >> inputStr;
+	LetterGrid wsearch = LetterGrid(inputStr);
+	// Print letter grid
 	wsearch.PrintGrid();
+	cout << "\n";
+	// Match and print word search words
 	matchWords(glossary, wsearch);
+}
+
+int main(){
+	wordSearch();
 	return 0;
 }
