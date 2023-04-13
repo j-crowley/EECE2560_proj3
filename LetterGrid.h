@@ -1,4 +1,7 @@
 // Project 3 - Julian, Anwar, and David - LetterGrid Class .h
+#ifndef _LETTER_GRID
+#define _LETTER_GRID
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -18,3 +21,5 @@ class LetterGrid {
 		// Function: Prints grid into console
 		void PrintGrid();
 };
+
+#endif

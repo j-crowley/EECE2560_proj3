@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <algorithm>
 #include "sort_algorithms.h"
 #include "WordFinder.h"
 using namespace std;
@@ -25,9 +26,9 @@ void WordFinder::WordsFromFile(string path){
 	}
 }
 
-ostream & WordFinder::operator<<(ostream & out){
-	for(string word : words){
-		out << word << "\n";
+ostream & operator<<(ostream & out, WordFinder & WF){
+	for(int x = 0; x < WF.words.size(); x++){
+		out << WF.words[x] << "\n";
 	}
 	return out;
 }
@@ -37,19 +38,8 @@ void WordFinder::SelectionSortWords(){
 }
 
 bool WordFinder::LookUpWord(string wordStr){
-	int mid, first = 0, last = words.size() - 1;
-	while ( first <= last ) {
-		mid = ( first + last ) / 2;
-		if ( wordStr < words[mid] ) {
-			last = mid - 1;
-		} else if ( wordStr > words[mid] ) {
-			first = mid + 1;
-		} else {
-			return true;
-		}
-		if ( first > last ) {
-			return false;
-		}
+	if (binary_search(words.begin(),words.end(),wordStr)){
+		return true;
 	}
 	return false;
 }

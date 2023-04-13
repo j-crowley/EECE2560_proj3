@@ -31,7 +31,7 @@ void LetterGrid::LoadGridFromFile(string path){
 	// Grid Loading
 	for (int x = 0; x < inputLen; x++){
 		for (int y = 0; y < inputWid; y++){
-			fin >> grid[x][y];
+			fin >> grid[y][x];
 		}
 	}
 }
@@ -40,7 +40,7 @@ void LetterGrid::PrintGrid(){
 	cout << "Grid: \n";
 	for (int x = 0; x < grid.cols();  x++){
 		for (int y = 0; y < grid.rows(); y++){
-			cout << grid[x][y] << " ";
+			cout << grid[y][x] << " ";
 		}
 		cout << "\n";
 	}
