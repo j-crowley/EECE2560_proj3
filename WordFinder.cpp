@@ -20,6 +20,10 @@ WordFinder::WordFinder(string path){
 void WordFinder::WordsFromFile(string path){
 	ifstream fin;
 	fin.open(path);
+	if (!fin){
+		cerr << "Cannot open word finder input file.\n";
+        exit(1);
+	}
 	string inputStr;
 	while (fin >> inputStr){
 		words.push_back(inputStr);

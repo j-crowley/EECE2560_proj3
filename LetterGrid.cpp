@@ -21,6 +21,11 @@ LetterGrid::LetterGrid(string path){
 void LetterGrid::LoadGridFromFile(string path){
 	ifstream fin;
 	fin.open(path);
+	// Checking if path exists
+	if (!fin){
+		cerr << "Cannot open letter grid input file.\n";
+        exit(1);
+	}
 	int inputLen;
 	int inputWid;
 	string inputStr;
