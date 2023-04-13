@@ -12,10 +12,6 @@ using namespace std;
 template<class T>
 void bubbleSort(T theArray[], int n);
 
-
-// sort an integer array using selection sort
-void selectionSort(int arr[], int n);
-
 // sort an array of type T using selection sort
 template <typename T>
 void selectionSort(T arr[], int n);
@@ -124,39 +120,6 @@ void bubbleSort(T theArray[], int n)
       pass++;
    }  // end while
 }  // end bubbleSort
-
-/** Sorts the items in an int array into ascending order 
-	using Selection Sort Algorithm.
- @pre  None.
- @post  arr is sorted into ascending order; n is unchanged.
- @param arr  The given array.
- @param n  The size of arr. */
-void selectionSort(int arr[], int n)
-{
-	//cout << "Sorting using int array selectionSort..." << endl;
-	int smallIndex; // index of smallest element in the sublist
-	int pass, j;
-	int temp;
-	// pass has the range 0 to n-2
-	for (pass = 0; pass < n-1; pass++)
-	{
-		// scan the sublist starting at index pass
-		smallIndex = pass;
-		// j traverses the sublist arr[pass+1] to arr[n-1]
-		for (j = pass+1; j < n; j++)
-				 // update if smaller element found
-			if (arr[j] < arr[smallIndex])
-				smallIndex = j;
-		// if smallIndex and pass are not the same location,
-		// exchange the smallest item in the sublist with arr[pass]
-		if (smallIndex != pass)
-		{
-			temp = arr[pass];
-			arr[pass] = arr[smallIndex];
-			arr[smallIndex] = temp;
-		}
-	}
-}
 
 /** Sorts the items in an array of any data type  
 	into ascending order using Selection Sort Algorithm .

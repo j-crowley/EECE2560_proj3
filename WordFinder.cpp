@@ -1,9 +1,8 @@
-// Project 33 - David, Anwar, and Julian - Wordfinder Class .cpp
+// Project 3 - Julian, Anwar, and David - Wordfinder Class .cpp
 #include <iostream>
 #include <vector>
 #include <string>
 #include <fstream>
-#include <algorithm>
 #include "sort_algorithms.h"
 #include "WordFinder.h"
 using namespace std;
@@ -14,7 +13,6 @@ WordFinder::WordFinder(){}
 
 WordFinder::WordFinder(string path){
 	WordsFromFile(path);
-	SelectionSortWords();
 }
 
 // Functions
@@ -27,7 +25,7 @@ void WordFinder::WordsFromFile(string path){
 	}
 }
 
-ostream & WordFinder::operator<< (ostream & out){
+ostream & WordFinder::operator<<(ostream & out){
 	for(string word : words){
 		out << word << "\n";
 	}
@@ -39,8 +37,20 @@ void WordFinder::SelectionSortWords(){
 }
 
 bool WordFinder::LookUpWord(string wordStr){
-	if(binary_search(words.begin(),words.end(),wordStr)){
-		return true;
+	int mid, first = 0, last = words.size() - 1;
+	while ( first <= last ) {
+		mid = ( first + last ) / 2;
+		if ( wordStr < words[mid] ) {
+			last = mid - 1;
+		} else if ( wordStr > words[mid] ) {
+			first = mid + 1;
+		} else {
+			return true;
+		}
+		if ( first > last ) {
+			return false;
+		}
 	}
 	return false;
 }
+
