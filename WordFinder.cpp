@@ -14,7 +14,7 @@ WordFinder::WordFinder(){}
 
 WordFinder::WordFinder(string path){
 	WordsFromFile(path);
-	SortWords();
+	SelectionSortWords();
 }
 
 // Functions
@@ -34,7 +34,7 @@ ostream & WordFinder::operator<< (ostream & out){
 	return out;
 }
 
-void WordFinder::SortWords(){
+void WordFinder::SelectionSortWords(){
 	selectionSort(words);
 }
 

@@ -20,7 +20,7 @@ class WordFinder {
 		// Operator Overide: << contents of string vector words
 		ostream & operator<< (ostream & out);
 		// Function: Sorts words using selection sort in sort_algorithms.h
-		void SortWords();
+		void SelectionSortWords();
 		// Function: Looks up word using binary search on vector
 		bool LookUpWord(string wordStr);
 };
