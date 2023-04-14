@@ -12,11 +12,11 @@ class LetterGrid {
 	public:
 		// Grid matrix for storing letters
 		matrix<string> grid;
-		// Default Constructor: Grid length and width one
+		// Default Constructor: Grid length and width equal to one
 		LetterGrid();
-		// Modified Constructor: Has grid length and width and character fill from file
+		// Modified Constructor: Resizes grid and fills with characters based on file
 		LetterGrid(string path);
-		// Function: Loads letters from a file path 
+		// Function: Loads and resizes grid from a file using file path 
 		void LoadGridFromFile(string path);
 		// Function: Prints grid into console
 		void PrintGrid();

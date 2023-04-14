@@ -19,7 +19,7 @@ public:
     WordFinder();
     // Modified Constructor: Loads from file
     WordFinder(string path);
-    // Function: Loads words from file to vector
+    // Function: Loads words from file to words vector
     void WordsFromFile(string path);
     // Function: Sorts words using selection sort in sort_algorithms.h
     void SelectionSortWords();

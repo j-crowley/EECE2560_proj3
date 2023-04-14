@@ -96,7 +96,7 @@ void wordSearch (){
     cout << "\n";
     // Match and print word search words
     matchWords(glossary, wsearch);
-}
+} // End wordSearch()
 
 int main(){
     wordSearch();
